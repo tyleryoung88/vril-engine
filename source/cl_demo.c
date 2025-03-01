@@ -18,7 +18,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "quakedef.h"
+#include "nzportable_def.h"
 
 void CL_FinishTimeDemo (void);
 
@@ -230,7 +230,7 @@ void CL_Record_f (void)
 	else
 		track = -1;	
 
-	sprintf (name, "%s/%s", com_gamedir, Cmd_Argv(1));
+	snprintf (name, MAX_OSPATH + 1, "%s/%s", com_gamedir, Cmd_Argv(1));
 	
 //
 // start the map up
@@ -305,7 +305,7 @@ void CL_PlayDemo_f (void)
 	COM_DefaultExtension (name, ".dem");
 
 	Con_Printf ("Playing demo from %s.\n", name);
-	COM_FOpenFile (name, &cls.demofile);
+	Sys_FileOpenRead(name, &cls.demofile);
 	if (cls.demofile < 0)
 	{
 		Con_Printf ("ERROR: couldn't open demo for reading.\n");

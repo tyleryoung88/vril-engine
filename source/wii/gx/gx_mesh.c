@@ -20,7 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 // gl_mesh.c: triangle model functions
 
-#include "../../quakedef.h"
+#include "../../nzportable_def.h"
 
 /*
 =================================================================
@@ -263,8 +263,8 @@ void BuildTris (void)
 			s = (s + 0.5) / pheader->skinwidth;
 			t = (t + 0.5) / pheader->skinheight;
 
-			*(float *)&commands[numcommands++] = s;
-			*(float *)&commands[numcommands++] = t;
+			memcpy(&commands[numcommands++], &s, sizeof(float));
+			memcpy(&commands[numcommands++], &t, sizeof(float));
 		}
 	}
 

@@ -19,7 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 // sv_main.c -- server main program
 
-#include "quakedef.h"
+#include "nzportable_def.h"
 
 server_t		sv;
 server_static_t	svs;
@@ -1410,8 +1410,8 @@ int n_waypoints;
 // Waypoint file.
 //
 void Load_Waypoint_NZPBETA() {
-	char temp[64];
-	int i, p, s;
+	int i, p;
+	int s = 0;
 	int h = 0;
 
 	// Keep track of the waypoint with the highest index we've loaded
@@ -1442,7 +1442,6 @@ void Load_Waypoint_NZPBETA() {
 	Con_DPrintf("Loading BETA waypoints\n");
 
 	vec3_t way_origin;
-	int way_id = 0;
 
 	while (1) {
 		// End of file.
@@ -1570,9 +1569,10 @@ void cleanup_waypoints() {
 
 void Load_Waypoint () {
 	char temp[64];
-	int p, s;
-	vec3_t d;
+	int p;
 	int h = 0;
+	int s = 0;
+	vec3_t d;
 
 	// ---------------------------------------
 	// Clear the structs
@@ -1642,7 +1642,7 @@ void Load_Waypoint () {
 			for (int t = 0; t < 8; t++) {
 				int start = t == 0 ? 9 : 10;
 				strcpy(temp, W_substring (W_fgets (h), start, 20));
-				if (isdigit(temp[0])) {
+				if (isdigit((int)temp[0])) {
 					waypoints[i].target[slot] = atoi (temp);
 					slot++;
 				}

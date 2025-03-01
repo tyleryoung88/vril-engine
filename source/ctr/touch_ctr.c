@@ -20,7 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 //FIX ME: load all hardcoded values from file
 
-#include "../quakedef.h"
+#include "../nzportable_def.h"
 
 #include <3ds.h>
 #include "touch_ctr.h"
@@ -78,15 +78,15 @@ void Touch_Update(){
   }
 }
 
-void Touch_ProcessTap()
-{
-  if(touch.px > 268 && touch.py > 14 && touch.py < 226)
-    Touch_SideBarTap();
-}
-
 void Touch_SideBarTap()
 {
   uint16_t y = (touch.py - 14)/42;
   lastKey = K_AUX9 + y;
   Key_Event(lastKey, true);
+}
+
+void Touch_ProcessTap()
+{
+  if(touch.px > 268 && touch.py > 14 && touch.py < 226)
+    Touch_SideBarTap();
 }

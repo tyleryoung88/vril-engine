@@ -31,7 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <limits.h>
 extern "C"
 {
-#include "../../quakedef.h"
+#include "../../nzportable_def.h"
 }
 
 #include <vram.h>
@@ -565,7 +565,7 @@ void SCR_ScreenShot_f (void)
 	{
         name[12] = i/10 + '0';
 		name[13] = i%10 + '0';
-		sprintf (checkname, "%s/%s", com_gamedir, name);
+		snprintf (checkname, 258, "%s/%s", com_gamedir, name);
 		if (Sys_FileTime(checkname) == -1)
 			break;	// file doesn't exist
 	}

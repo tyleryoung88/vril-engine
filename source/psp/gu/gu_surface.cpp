@@ -25,7 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern "C"
 {
-#include "../../quakedef.h"
+#include "../../nzportable_def.h"
 }
 
 #ifdef PSP_VFPU
@@ -818,7 +818,6 @@ static void R_BlendLightmaps (void)
 		GL_BindLM (lightmap_index[i]);
 		for (; lmface; lmface = lmface->next) {
 			msurface_t * face = lmface->face;
-			float scale = 0.0625f;
 			float tscale = face->texinfo->texture->width / (BLOCK_WIDTH * 16.f);
 			float sscale = face->texinfo->texture->height / (BLOCK_HEIGHT * 16.f);
 			

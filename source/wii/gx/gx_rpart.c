@@ -19,7 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "../../quakedef.h"
+#include "../../nzportable_def.h"
 
 #define MAX_PARTICLES			6144	// default max # of particles at one
 										//  time
@@ -169,7 +169,7 @@ void R_ReadPointFile_f (void)
 	
 	sprintf (name,"maps/%s.pts", sv.name);
 
-	COM_FOpenFile (name, (int *)&f);
+	COM_FOpenFile (name, &f);
 	if (!f)
 	{
 		Con_Printf ("couldn't open %s\n", name);

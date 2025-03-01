@@ -17,7 +17,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
-#include "../quakedef.h"
+#include "../nzportable_def.h"
 
 /*
 
@@ -55,7 +55,7 @@ typedef struct
 
 keyname_t keynames[] =
 {
-	#ifdef _3DS
+	#ifdef __3DS__
 	{"TAB", K_TAB},
 	{"START", K_ESCAPE},
 	{"SELECT", K_SELECT},
@@ -110,7 +110,7 @@ keyname_t keynames[] =
 	{"JOY3", K_JOY3},
 	{"JOY4", K_JOY4},
 
-	#ifdef _3DS
+	#ifdef __3DS__
 	{"ABUTTON", K_AUX1},
 	{"BBUTTON", K_AUX2},
 	{"XBUTTON", K_AUX3},
