@@ -27,6 +27,7 @@ extern bool new3ds_flag;
 #include <wiiuse/wpad.h>
 #include <ctype.h>
 #endif // __3DS__, __WII__
+#include <ctype.h>
 
 #define PR_MAX_TEMPSTRING 2048	// 2001-10-25 Enhanced temp string handling by Maddes
 #define	RETURN_EDICT(e) (((int *)pr_globals)[OFS_RETURN] = EDICT_TO_PROG(e))

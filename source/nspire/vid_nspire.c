@@ -96,7 +96,7 @@ void	VID_Shutdown (void)
 void	VID_Update (vrect_t *rects)
 {
 	int i_x, i_y, i_width, i_line_left;
-	unsigned short *ptr = (*(void**)0xC0000010);
+	unsigned int *ptr = (*(void**)0xC0000010);
 
 	i_width = SCREEN_WIDTH;
 	for( i_y = rects->y; i_y < rects->y+rects->height; i_y++ )
